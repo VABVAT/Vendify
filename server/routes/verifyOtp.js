@@ -19,7 +19,7 @@ router.post('/', async (req, res)=> {
         otp: otp
     })
     if(!user || user.expiresAt < Date.now()){
-        return res.status(400).json({error: "Incorrect OTP"})
+        return res.status(400).json({error: "Incorrect OTP"});
     }else{
         // ! fetch user from userModel and change verification status to true
         const user = await userModel.findOne({
