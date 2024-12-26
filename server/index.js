@@ -13,6 +13,10 @@ app.use(express.json({ limit: '4mb' }));  // Adjust the limit as per your needs
 app.use(express.urlencoded({ limit: '4mb', extended: true }));
 // ! otp end point -> will be modified
 
+app.get('/', (req, res) => {
+    res.json({status : "server is running"})
+})
+
 app.use('/sendOtp', sendOtp);
 app.use('/verifyOtp', verifyOtp);
 app.use('/signUp', As)
