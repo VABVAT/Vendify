@@ -9,6 +9,7 @@ const {otpModel} = require('../models/otpModel')
 
 router.use(cors());
 mongoose.connect(process.env.MONGO_KEY)
+
 router.post('/', emailAuthenticator, (req, res) => {
     const email = req.body.email;
     const userId = req.body.userId;

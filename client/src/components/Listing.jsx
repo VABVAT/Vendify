@@ -20,7 +20,7 @@ export default function Listing() {
             try {
                 const token = localStorage.getItem('token');
                 const decodedToken = jwtDecode(token);
-                const response = await fetch('http://localhost:3000/userListings', {
+                const response = await fetch('https://vendify2.vercel.app/userListings', {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ email: decodedToken.email })

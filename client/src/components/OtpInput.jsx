@@ -17,7 +17,7 @@ const OtpInput = ({ size }) => {
       }
     }
     const Number = parseInt(ar.join(''))
-    const resp = await fetch('http://localhost:3000/verifyOtp', {
+    const resp = await fetch('https://vendify2.vercel.app/verifyOtp', {
       method: "POST",
       headers:{"Content-Type" : "application/json"},
       body: JSON.stringify({

@@ -8,7 +8,7 @@ export default function ListCard({ index, image, price, name, sold, id, descript
     const red = useRef();
     async function markDone() {
         red.current = id;
-        const repso = await fetch("http://localhost:3000/userListings", {
+        const repso = await fetch("https://vendify2.vercel.app/userListings", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

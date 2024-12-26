@@ -21,7 +21,7 @@ export default function SellForm() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        const response = await fetch("http://localhost:3000/postListing", {
+        const response = await fetch("https://vendify2.vercel.app/postListing", {
             method: "POST",
             headers: {"Content-Type" : 'application/json'},
             body:JSON.stringify({

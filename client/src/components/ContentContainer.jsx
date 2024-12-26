@@ -24,7 +24,7 @@ export default function ContentContainer(){
         async function getItem() {
             setLoader(true)
             try{
-            const response = await fetch('http://localhost:3000/listing', {
+            const response = await fetch('https://vendify2.vercel.app/listing', {
                 method : "GET"
             })
             const itemsArray = await response.json();
