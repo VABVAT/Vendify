@@ -7,6 +7,8 @@ import OtpBack from './components/OtpBack'
 import SellForm from './components/SellForm'
 import MainPage from './components/MainPage'
 import Listing from './components/Listing'
+import Incoming from './components/Incoming'
+import Outgoing from './components/Outgoing'
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
         <Route path='/otpValidation' element={<OtpBack> <OtpInput size={4}/> </OtpBack>}></Route>
         <Route path='/seller' element={<SellForm />}></Route>
         <Route path='/' element={<MainPage/>}></Route>
-        <Route path='/listing' element={<Listing />}> </Route>
+        <Route path='/listing' element={<Listing edit={true} />}> </Route>
+        <Route path="/incoming" element={<Incoming />}></Route>
+        <Route path='/Sending' element={<Outgoing />}></Route>
       </Routes>
     </BrowserRouter>
     </>

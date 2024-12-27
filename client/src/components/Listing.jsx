@@ -3,7 +3,7 @@ import { jwtDecode } from "jwt-decode";
 import ListCard from "./ListCard";
 import { useNavigate } from "react-router-dom";
 import Header from './Header'
-export default function Listing() {
+export default function Listing({edit}) {
     const [pdcts, setPdcts] = useState([]);
     const [loading, setLoading] = useState(true);
     const Navigate = useNavigate();
@@ -47,6 +47,7 @@ export default function Listing() {
                 ) : (
                     pdcts.map((product, index) => (
                         <ListCard 
+                            edit = {edit}
                             key={index}
                             image={product.image} 
                             index={index} 

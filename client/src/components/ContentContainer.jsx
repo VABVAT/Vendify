@@ -31,7 +31,7 @@ export default function ContentContainer(){
             if(!itemsArray.products) throw new Error("something went wrong")
             else{
                 setprods(itemsArray.products)
-                // console.log(itemsArray.products)
+                // console.log(itemsArray.products[0]._id)
                 setLoader(false)
             }
             }catch(e){
@@ -41,7 +41,7 @@ export default function ContentContainer(){
         getItem();
     }, [])
     return(
-        <div className="bg-Gld rounded-2xl">
+        <div className="bg-Gld rounded-2xl ">
             {loader === false ? <div className="w-[100%] bg-Gld h-[32px]">
                 <button className="ml-8  mb-4" onClick={toggle}>
                     <img src={im2} className="h-[20px]" />
@@ -56,8 +56,8 @@ export default function ContentContainer(){
                     </div>
                 </div> : null}
             </div> : null}
-            <div className="flex flex-wrap p-4  border-2 border-solid border-black w-[100%] bg-Gld mt-4 space-x-3 justify-center h-[400px] overflow-y-auto items-center place-items-start rounded-2xl">
-                {loader === true ? Array.from({length: 8}, (product, index) => (<Skeleton key={product}/>)) : prods.map((prods, index) => (<div><Card image={prods.image} email={prods.soldBy} price={prods.price} name={prods.name}/></div>))}
+            <div className="flex flex-wrap p-4  border-2 border-solid border-black w-[100%] bg-Gld mt-4 space-x-3 justify-center h-[400px] overflow-y-auto items-center place-items-start rounded-2xl relative">
+                {loader === true ? Array.from({length: 8}, (product, index) => (<Skeleton key={product}/>)) : prods.map((prods, index) => (<div><Card image={prods.image} email={prods.soldBy} price={prods.price} name={prods.name} description={prods.description} ids={prods._id}/></div>))}
             </div>
         </div>
     )

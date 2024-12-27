@@ -28,9 +28,11 @@ export default function Header() {
                  </button>
             </div>
             <div className=" w-[50%] flex flex-wrap justify-center items-center justify-center space-x-8 ">
-            <button className="font-poppins font-bold transition-all duration-300  text-black p-3  text-xs shadow-2xl bg-white hover:bg-Gld transtion-all duration-500" onClick={list}>See your listings</button>
-                <button className="font-poppins font-bold transition-all  duration-300  text-black p-3  text-xs shadow-2xl bg-white hover:bg-Gld transtion-all duration-500" onClick={goList}>Create a listing</button>
-                <button className="font-poppins font-bold transition-all duration-300  text-black p-3  text-xs shadow-2xl bg-white hover:bg-Gld transtion-all duration-500" onClick={signOut} >Sign out</button>
+            <button className="font-poppins font-bold transition-all duration-300  text-black p-2  text-xs shadow-2xl bg-white hover:bg-Gld transtion-all duration-500" onClick={() => navigate('/Sending')} >Sent offers</button>
+            <button className="font-poppins font-bold transition-all duration-300  text-black p-2  text-xs shadow-2xl bg-white hover:bg-Gld transtion-all duration-500" onClick={() => (navigate('/incoming'))}>Incoming offers</button>
+            <button className="font-poppins font-bold transition-all duration-300  text-black p-2  text-xs shadow-2xl bg-white hover:bg-Gld transtion-all duration-500" onClick={list}>Edit your listings</button>
+            <button className="font-poppins font-bold transition-all  duration-300  text-black p-2  text-xs shadow-2xl bg-white hover:bg-Gld transtion-all duration-500" onClick={goList}>Create a listing</button>
+            <button className="font-poppins font-bold transition-all duration-300  text-black p-2  text-xs shadow-2xl bg-white hover:bg-Gld transtion-all duration-500" onClick={signOut} >Sign out</button>
             </div>
         </div>
     )
