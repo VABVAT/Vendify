@@ -60,33 +60,63 @@ function Login(props){
         }
     }
     return(
-        <div className="w-[90%] h-[80%] bg-white rounded-2xl shadow-2xl flex flex-col p-4 justify-center items-center">
-            <div className="poppins text-3xl  h-[20%] w-[100%] flex flex-row justify-center items-center">
-                
-                {props.signup == true ? <div className="text-black">Create an account</div> : <div className="text-black">Welcome back</div>}
-            </div>
-            <div className="h-[40%] w-[100%] space-y-1">
-            
-               <div className="space-y-1 w-[100%] h-[40%] flex flex-col justify-center items-center">
-               <div className="text-black">Email</div>
-                <input type="text" ref={userRef} placeholder="Enter your institute email" className="w-[70%] h-[50%] rounded-2xl border-[1px] border-black border-solid p-4"/>
-               </div>
-               <div className="space-y-1 w-[100%] h-[40%] flex flex-col justify-center items-center">
-               <div className="text-black">Password</div>
-                    <input type="password" ref={passRef} placeholder="Enter your password" className="w-[70%] h-[50%] rounded-2xl border-[1px] border-black border-solid p-4"/>
-               </div>
-               {error ? <div className="text-center text-red-500">{error} </div> : null}
-            </div>
-            {props.signup === true ? <div className=" text-black h-[10%] w-[80%] text-center">
-                Already have an account ? <a href="/signin" className="text-blue-300"> Log in</a> now
-            </div> : <div className="h-[10%] w-[80%] text-center text-black ">
-                Dont have an account ? <a href="/signup" className="text-blue-300">Sign up</a> now
-            </div>
-            }
-            <div className="h-[10%] w-[60%] flex flex-row justify-center items-center rounded-xl bg-black">
-                <button className="h-[100%] w-[100%] text-white" onClick={props.signup == true ? signUp : signIn}> {props.signup == true ? <span>Sign up</span> : <span>Sign in</span>}</button>
-            </div>
+<div className="w-[90%] min-h-[80%] bg-white rounded-2xl shadow-2xl flex flex-col p-2 justify-center items-center">
+    <div className="poppins text-3xl mb-4 h-[20%] w-[100%] flex flex-row justify-center items-center">
+        {props.signup ? (
+            <div className="text-black">Create an account</div>
+        ) : (
+            <div className="text-black">Welcome back</div>
+        )}
+    </div>
+    <div className="h-[40%] w-[100%] mb-2 flex flex-col space-y-4">
+        <div className="w-[100%] flex flex-col justify-center items-center space-y-1">
+            <div className="text-black">Email</div>
+            <input
+                type="text"
+                ref={userRef}
+                placeholder="Enter your institute email"
+                className="w-[70%] h-[50px] rounded-2xl border-[1px] border-black border-solid p-4"
+            />
         </div>
+        <div className="w-[100%] flex flex-col justify-center items-center space-y-1">
+            <div className="text-black">Password</div>
+            <input
+                type="password"
+                ref={passRef}
+                placeholder="Enter your password"
+                className="w-[70%] h-[50px] rounded-2xl border-[1px] border-black border-solid p-4"
+            />
+        </div>
+        {error && <div className="text-center text-red-500">{error}</div>}
+    </div>
+    {props.signup ? (
+        <div className="text-black h-[10%] w-[80%] text-center">
+            Already have an account?{" "}
+            <a href="/signin" className="text-blue-300">
+                Log in
+            </a>{" "}
+            now
+        </div>
+    ) : (
+        <div className="h-[10%] w-[80%] text-center text-black">
+            Don’t have an account?{" "}
+            <a href="/signup" className="text-blue-300">
+                Sign up
+            </a>{" "}
+            now
+        </div>
+    )}
+<div className="h-[15%]  w-[60%] flex flex-row justify-center items-center rounded-xl bg-black mt-4">
+    <button
+        className="w-full py-4 text-white rounded-xl hover:bg-gray-800 focus:outline-none"
+        onClick={props.signup ? signUp : signIn}
+    >
+        {props.signup ? <span>Sign up</span> : <span>Sign in</span>}
+    </button>
+</div>
+
+</div>
+
     )
 }
 

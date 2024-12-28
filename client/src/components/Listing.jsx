@@ -57,6 +57,7 @@ export default function Listing({edit}) {
                             id={product._id}
                             email={product.soldBy}
                             description={product.description}
+                            status={product.status}
                         />
                     ))
                 )}

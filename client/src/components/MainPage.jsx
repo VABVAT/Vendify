@@ -25,7 +25,7 @@ export default function MainPage(){
     return (
         <div className="min-h-screen  min-w-screen bg-black ">
             <Header/>
-            <div className="w-[100%]  text-white p-10 flex">
+            <div className="w-[100%]  text-white p-10 flex-col sm:flex">
                 <div className="w-[50%]"></div>
                 <div className="w-[50%] font-bold text-white  p-4 m-4 text-Gld">
                         <div className="m-3 font-poppins text-Gld text-6xl">Sell Smart, </div>
