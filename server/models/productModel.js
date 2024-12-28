@@ -9,8 +9,9 @@ const productModelSchema = new schema({
         price: {type: Number},
         description: {type: String},
         image: {type: String},
-        name: {type: String}
-}) 
+        name: {type: String},
+        buyer: {type: String, default: "none"}
+    }) 
 
 const productModel = mongoose.model("productModel", productModelSchema)
 

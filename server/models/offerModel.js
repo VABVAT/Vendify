@@ -14,7 +14,8 @@ const offerSchema = new schema({
     description: {type: String, required: true},
     originalPrice: {type: Number},
     status:{type: String, default: "PENDING"},
-    originalSeller: {type: String, required: true}
+    originalSeller: {type: String, required: true},
+    buyer: {type: String, default: "none"}
 })
 
 const offerModel = mongoose.model('offerModel', offerSchema)

@@ -43,6 +43,8 @@ router.post("/", async (req, res) => {
         })
         offer.status = "ACCEPTED"
         product.sold = true;
+        offer.buyer = offer.originalSeller === email ? sellerEmail : email;
+        product.buyer = offer.originalSeller === email ? sellerEmail : email;
         await product.save();
         await offer.save();
       return res.status(200).json({ success: "offer confirmed" });
