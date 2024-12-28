@@ -84,7 +84,7 @@ export default function Header() {
               User details
             </button>
             {open && (
-              <div className="mt-2 bg-white absolute p-2 shadow-lg rounded-xl w-48 md:w-56">
+              <div className="mt-2 bg-white z-[1000px] absolute p-2 shadow-lg rounded-xl w-48 md:w-56">
                 <div className="text-sm p-2">
                   Email: {getUserEmail() || "No user email available"}
                 </div>

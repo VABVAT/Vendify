@@ -54,16 +54,19 @@ export default function Incoming(){
     }, [])
 
     return (
-        <div className="min-w-screen min-h-screen bg-black">
+        <div className="min-w-screen min-h-screen h-screen w-screen bg-black">
         <Header />
         <div className="w-[100%] h-[100%] p-4">
-            <h1 className="text-2xl font-bold mb-4">Incoming Offers</h1>
-            
+            <div className="h-[10%]">
+            <h1 className="text-2xl text-white text-center font-bold mb-4">Incoming Offers</h1>
+            </div>
            {
             loading === false ?
-            <div className="w-[100%] flex flex-col justify-center items-center">
+            <div className="w-[100%]  flex-col justify-items-start items-center">
                 {list.map((prod, index) => (
+                    <div className="flex w-full justify-center items-center">
                             <InpOup sendMode={true} prod={prod} index={index}/>
+                        </div>
                 ))}
             </div> :
             <div className="flex flex-row items-center justify-center"> 

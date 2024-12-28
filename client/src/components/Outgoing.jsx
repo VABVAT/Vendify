@@ -58,7 +58,7 @@ export default function Outgoing(){
             <h1 className="text-2xl font-bold mb-4">Outgoing Offers</h1>
             {
                 loading === false ?
-            <div className="w-[100%] flex flex-col justify-center items-center">
+            <div className="w-[100%] h-[15%] flex flex-col justify-center items-center">
                 {list.map((prod, index) => (
                             <InpOup sendMode={false} prod={prod} index={index}/>
                 ))}
