@@ -5,6 +5,7 @@ export default function Header() {
     const signOut = () => {
         try{
             localStorage.removeItem('token')
+            navigate('/signin')
         }catch(e){
             navigate('/signin')
         }

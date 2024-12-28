@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import {jwtDecode} from 'jwt-decode'
 import Header from "./Header"
 import { useNavigate } from "react-router-dom"
@@ -6,6 +6,7 @@ import InpOup from "./InpOup"
 
 export default function Incoming(){
     const [list, setList] = useState([])
+    const [loading, setLoading] = useState(true)
     const Navigate = useNavigate()
     useEffect(() => {
         const interval = setInterval(() => {
@@ -16,6 +17,25 @@ export default function Incoming(){
     }, [])
 
     useEffect(() => {
+        setLoading(true)
+        async function getOffers() {
+            const offers1 = await fetch("https://vendify2.vercel.app/getOffers", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    email: jwtDecode(localStorage.getItem('token')).email
+                })
+            }) 
+            const offers = await offers1.json();            
+            if(loading === true) setLoading(false)
+            setList(offers.offers)
+        }
+            getOffers()
+    }, [])
+
+
+    useEffect(() => {
+        
         async function getOffers() {
             const offers1 = await fetch("https://vendify2.vercel.app/getOffers", {
                 method: "POST",
@@ -27,7 +47,10 @@ export default function Incoming(){
             const offers = await offers1.json();
             setList(offers.offers)
         }
+        const interval = setInterval(() => {
             getOffers()
+        }, 6000)
+        return () => clearInterval(interval)
     }, [])
 
     return (
@@ -35,11 +58,21 @@ export default function Incoming(){
         <Header />
         <div className="w-[100%] h-[100%] p-4">
             <h1 className="text-2xl font-bold mb-4">Incoming Offers</h1>
+            
+           {
+            loading === false ?
             <div className="w-[100%] flex flex-col justify-center items-center">
                 {list.map((prod, index) => (
                             <InpOup sendMode={true} prod={prod} index={index}/>
                 ))}
-            </div>
+            </div> :
+            <div className="flex flex-row items-center justify-center"> 
+                <div className="text-white">  Loading ...</div>
+            </div>}
+            {loading === false && list.length === 0 ? <div className="flex flex-col justify-center items-center text-white">
+                <div>Nothing to show</div>   
+                <div className="font-bold">Offers sent or counter offers can be seen in sent offers </div> 
+            </div> : null}
         </div>
     </div>
     )

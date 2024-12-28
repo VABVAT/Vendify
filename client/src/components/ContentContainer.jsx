@@ -21,8 +21,8 @@ export default function ContentContainer(){
     }
 
     useEffect(() => {
+        setLoader(true)
         async function getItem() {
-            setLoader(true)
             try{
             const response = await fetch('https://vendify2.vercel.app/listing', {
                 method : "GET"
@@ -37,8 +37,33 @@ export default function ContentContainer(){
             }catch(e){
 
             }
-        } 
-        getItem();
+        }
+                getItem()
+
+        
+    }, [])
+
+    useEffect(() => {
+        
+        async function getItem() {
+            try{
+            const response = await fetch('https://vendify2.vercel.app/listing', {
+                method : "GET"
+            })
+            const itemsArray = await response.json();
+            if(!itemsArray.products) throw new Error("something went wrong")
+            else{
+                setprods(itemsArray.products)
+            }
+            }catch(e){
+
+            }
+        }
+        const interval = setInterval(() => {
+                getItem()
+        }, 7000);
+        return () => clearInterval(interval) 
+        
     }, [])
     return(
         <div className="bg-Gld rounded-2xl ">
@@ -46,13 +71,14 @@ export default function ContentContainer(){
                 <button className="ml-8  mb-4" onClick={toggle}>
                     <img src={im2} className="h-[20px]" />
                 </button>
-                {open === true ? <div className="z-10 "> 
-                    <div className="absolute mb-2 bg-white hover:bg-gray-200">
-                        <button className="z-40" onClick={sortLow}> Sort price: Low to high</button>
-                    </div>
-                    <br />
-                    <div className=" absolute bg-white hover:bg-gray-200">
-                        <button className="z-40" onClick={sortHigh}>Sort price: High to low</button>
+                {open === true ? <div className="z-50 "> 
+                    <div className="absolute mb-2 z-50 rounded-xl bg-white p-2 p-[1px] m-2">
+                        <div className="p-2  hover:bg-gray-200">
+                            <button className="z-40 " onClick={sortLow}> Sort price: Low to high</button>
+                        </div>
+                        <div className="p-2  hover:bg-gray-200">
+                            <button className="z-40 " onClick={sortHigh}>Sort price: High to low</button>
+                        </div>
                     </div>
                 </div> : null}
             </div> : null}

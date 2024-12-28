@@ -6,13 +6,20 @@ import Card from "./Card.jsx";
 import ContentContainer from "./ContentContainer.jsx";
 import im2 from '../public/im2.png'
 export default function MainPage(){
-    const Navigate = useNavigate()
+    const navigate = useNavigate();
     useEffect(() => {
         const interval = setInterval(() => {
-            const token = localStorage.getItem('token');
-            if(!token || (jwtDecode(token).exp*1000 < Date.now())) Navigate('/signup')
+
+            const token = localStorage.getItem('token')
+
+            if(!token){
+                navigate('/signin')
+            }else if(jwtDecode(token).exp*1000 < Date.now()){
+                localStorage.removeItem('token');
+                navigate('/signin')
+            }
         }, 1000)
-        return () => clearInterval(interval)
+       return () => clearInterval(interval) 
     }, [])
 
     return (
