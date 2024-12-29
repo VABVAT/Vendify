@@ -9,6 +9,7 @@ import MainPage from './components/MainPage'
 import Listing from './components/Listing'
 import Incoming from './components/Incoming'
 import Outgoing from './components/Outgoing'
+import Transactions from './components/Transactions'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/listing' element={<Listing edit={true} />}> </Route>
         <Route path="/incoming" element={<Incoming />}></Route>
         <Route path='/Sending' element={<Outgoing />}></Route>
+        <Route path='/transactions' element={<Transactions />}></Route>
       </Routes>
     </BrowserRouter>
     </>

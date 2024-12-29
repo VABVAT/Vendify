@@ -25,7 +25,7 @@ export default function EditForm({editForm, email ,setEditForm, price, name, des
     return (
         <>
         {editForm === true ? <div className="fixed inset-0 w-screen h-screen z-50 flex justify-center items-center bg-black bg-opacity-50">
-            <div className="w-[30%] p-6 bg-gray-100 rounded-lg shadow-md">
+            <div className="w-[60%] sm:w-[30%] p-6 bg-gray-100 rounded-lg shadow-md">
             <div className="h-[30px] w-[100%] relative ">
                 <div className="h-[100%] w-[15%] absolute right-0 top-0 flex justify-center  items-center">
                     <button className="w-[60%] h-[60%]" onClick={() => (setEditForm(false))}>

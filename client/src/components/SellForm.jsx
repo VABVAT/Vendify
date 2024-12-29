@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import Header from "./Header";
-
+import bsp from '../public/sbp.png'
 export default function SellForm() {
     const fileRef = useRef(null);
     const descriptionRef = useRef("");

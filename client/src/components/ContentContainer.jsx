@@ -63,7 +63,7 @@ export default function ContentContainer() {
         }
         const interval = setInterval(() => {
             getItem()
-        }, 7000);
+        }, 10000);
         return () => clearInterval(interval)
 
     }, [])

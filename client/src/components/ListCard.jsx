@@ -84,7 +84,7 @@ export default function ListCard({
                   className="px-6 py-2 bg-black text-white rounded-lg hover:bg-red-500 transition"
                   onClick={() => setConfirmation(true)}
                 >
-                  Delete Listing
+                  Delete 
                 </button>
               )}
             </div>

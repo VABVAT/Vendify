@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import bsp from '../public/backa.png'
 
 const OtpInput = ({ size }) => {
   const navigate = useNavigate()
@@ -52,7 +52,15 @@ const OtpInput = ({ size }) => {
 
   return (
     <div className="bg-Gld p-12 rounded-2xl">
+      <div className="h-[20px] mb-4 w-full ">
+        <div className=" right-0 top-0 h-full w-[10%]">
+          <button className=" w-full h-full" onClick={() => navigate('/signup')}>
+            <img src={bsp} alt="" className=" w-full h-full" />
+          </button>
+        </div>
+      </div>
       <div className="font-serif text-3xl font-bold"> Verify your email </div>
+      <div className="font-serif text-xl font-bold text-center">Enter OTP</div>
     <br />
     <div className="flex space-x-2 flex justify-center">
       {Array.from({ length: size }, (_, index) => (

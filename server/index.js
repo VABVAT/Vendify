@@ -14,6 +14,7 @@ const {respondOffer} = require('./routes/respondOffer');
 const {accept} = require('./routes/accept');
 const {getSendOffers} = require('./routes/getSendOffers');
 const {reject} = require('./routes/reject');
+const {transactions} = require('./routes/transactions');
 app.use(cors());
 app.use(express.json({ limit: '4mb' }));  // Adjust the limit as per your needs
 app.use(express.urlencoded({ limit: '4mb', extended: true }));
@@ -36,5 +37,5 @@ app.use('/respondOffer', respondOffer)
 app.use('/accept', accept)
 app.use('/getSendOffers', getSendOffers)
 app.use('/reject', reject)
-
+app.use('/transactions', transactions)
 app.listen(3000);
