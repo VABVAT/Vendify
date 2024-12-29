@@ -91,7 +91,7 @@ export default function ListCard({
           ) : null}
         </div>
 
-        {/* Confirmation Modal */}
+        
         {confirmation && (
           <div className="fixed inset-0 w-screen bg-black h-screen z-50 flex justify-center items-center bg-gray-700 bg-opacity-50">
             <div className="bg-white relative w-[90%] md:w-[30%] border-[2px] border-solid border-black rounded-lg">
