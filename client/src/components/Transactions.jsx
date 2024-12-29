@@ -2,8 +2,10 @@ import { useEffect, useState } from "react"
 import {jwtDecode} from 'jwt-decode'
 import Header from "./Header"
 import InpOup from "./InpOup"
+import { useNavigate } from "react-router-dom"
 export default function Transactions(){
     const [prods, setProds] = useState([])
+    const Navigate = useNavigate();
     useEffect(() => {
         const interval = setInterval(() => {
             const token = localStorage.getItem('token');
