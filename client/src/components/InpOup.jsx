@@ -67,11 +67,11 @@ export default function InpOup({sendMode, prod, index }) {
     }
 
     return (<>
-        {prod.status === "PENDING" ? <div key={index} className="relative flex w-[70%] h-[200px] sm:items-center border border-gray-800 rounded-lg shadow-md mb-4 bg-Gld overflow-hidden">
-            <div className="w-[30%] bg-white h-[100%] flex items-center justify-center p-4 bg-gray-100">
-                <img src={prod.image} className="w-full h-full object-contain p-2" alt={prod.name} />
+        {prod.status === "PENDING" ? <div key={index} className="relative flex flex-col sm:flex-row w-[70%] h-auto sm:items-center border border-gray-800 rounded-lg shadow-md mb-4 bg-Gld overflow-hidden">
+            <div className="w-full sm:w-[30%] bg-white h-[100%] flex items-center justify-center p-4 bg-gray-100">
+                <img src={prod.image} className="w-full h-full object-contain " alt={prod.name} />
             </div>
-            <div className="w-[70%]  h-[100%] flex flex-col justify-between p-4 space-y-2">
+            <div className="w-full sm:w-[70%]  h-[100%] flex flex-col justify-between p-4 space-y-2">
                 <div>
                     <h3 className="text-lg h-[12%] font-bold mb-4 text-black">{prod.name}</h3>
                     <p className="text-gray-800 h-[8%] mb-1"><span className="font-semibold">original seller:</span> {prod.originalSeller}</p>
@@ -79,22 +79,22 @@ export default function InpOup({sendMode, prod, index }) {
                     <p className="text-gray-800 mb-1 h-[8%]"><span className="font-semibold">offered Price:</span> ₹{prod.price}</p>
                     <p className="text-gray-800 mb-1 h-[8%]"><span className="font-semibold">Offer made by: </span> {prod.offeredBy}</p>
                     {/* <p className="text-gray-800 mb-2 h-[12%]"><span className="font-semibold">Description:</span> {prod.description}</p> */}
-                    {sendMode === true ? <div className="flex h-[20%] w-full  items-center mt-4 space-x-4">
+                    {sendMode === true ? <div className="flex flex-col sm:flex-row h-[20%] w-full  items-center mt-4 space-x-4">
                         <button className="pl-4 pr-4 p-2 bg-black text-white rounded-xl" onClick={acceptOffer}>Accept offer</button>
                         <button className=" p-2 pl-4 pr-4 bg-black text-white rounded-xl" onClick={rejectOffer}>Reject offer</button>
                         <button className=" p-2 pl-4 pr-4 bg-black text-white rounded-xl" onClick={() => (setN(true))}>Counter offer</button>
                     </div> : <div className="flex h-[20%] w-full  items-center mt-4 space-x-4"> <strong>Current status:</strong> {prod.status} </div> }
                 </div>
             </div>
-        </div> : <div key={index} className="relative flex w-[70%] h-[200px] items-center border border-gray-800 rounded-lg shadow-md mb-4 bg-Gld overflow-hidden">
+        </div> : <div key={index} className="relative flex flex-col sm:flex-row w-[70%] auto sm:items-center border border-gray-800 rounded-lg shadow-md mb-4 bg-Gld overflow-hidden">
   {/* Status Overlay */}
-  <div className="h-[100%] absolute  w-full z-50 text-center text-4xl font-bold py-2 bg-opacity-75 bg-black text-white flex justify-center items-center">
+  <div className="h-[100%] absolute  w-full z-50 text-center text-xl sm:text-4xl font-bold py-2 bg-opacity-75 bg-black text-white flex justify-center items-center">
     {prod.status === "ACCEPTED" ? (
         <div>
                 <div className="text-green-300">ACCEPTED</div>
-                <div className="text-green-300 text-3xl">original seller: {prod.originalSeller}</div>
-                <div className="text-3xl text-green-300"> {jwtDecode(localStorage.getItem('token')).email === prod.originalSeller ? <span> Contact: {prod.offeredBy === prod.originalSeller ? prod.offeredTo : prod.offeredBy}</span> : <span>Contact: {prod.offeredBy === prod.originalSeller ? prod.offeredBy : prod.offeredTo} </span>}</div>
-                <div className="text-2xl text-green-300">Final price: ₹{prod.price}</div>
+                <div className="text-green-300 text-xl sm:text-3xl">original seller: <span className="text-sm sm:text-3xl">{prod.originalSeller} </span></div>
+                <div className="text-xl sm:text-3xl text-green-300"> {jwtDecode(localStorage.getItem('token')).email === prod.originalSeller ? <span> Contact: {prod.offeredBy === prod.originalSeller ? prod.offeredTo : prod.offeredBy}</span> : <span>Contact: {prod.offeredBy === prod.originalSeller ? prod.offeredBy : prod.offeredTo} </span>}</div>
+                <div className="text-xl sm:text-3xl text-green-300">Final price: ₹{prod.price}</div>
       </div>
     ) : (
       <div> 
@@ -104,14 +104,14 @@ export default function InpOup({sendMode, prod, index }) {
   </div>
   
   {/* Card Content */}
-  <div className="w-[30%] bg-white h-full flex items-center justify-center p-4 bg-gray-100">
+  <div className="w-full sm:w-[30%] bg-white h-full flex items-center justify-center p-4 bg-gray-100">
     <img
       src={prod.image}
-      className="w-full h-full object-contain p-2"
+      className="w-full h-full object-contain"
       alt={prod.name}
     />
   </div>
-  <div className="w-[70%] h-full flex flex-col justify-between p-4 space-y-2">
+  <div className="w-full sm:w-[70%] h-full flex flex-col justify-between p-4 space-y-2">
     <div>
       <h3 className="text-lg h-[12%] font-bold mb-4 text-black">{prod.name}</h3>
       <p className="text-gray-800 h-[8%] mb-1">
@@ -126,7 +126,7 @@ export default function InpOup({sendMode, prod, index }) {
       <p className="text-gray-800 mb-1 h-[8%]">
         <span className="font-semibold">Offer Made By:</span> {prod.offeredBy}
       </p>
-      {sendMode === true ? <div className="flex h-[20%] w-full items-center mt-4 space-x-4">
+      {sendMode === true ? <div className="flex flex-col sm:flex-row h-[20%] w-full items-center mt-4 space-x-4">
         <button
           className="pl-4 pr-4 p-2 bg-black text-white rounded-xl"
           onClick={acceptOffer}

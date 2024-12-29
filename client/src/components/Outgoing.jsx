@@ -54,8 +54,8 @@ export default function Outgoing(){
     return (
         <div className="min-w-screen min-h-screen bg-black">
         <Header />
-        <div className="w-[100%] h-[100%] p-4">
-            <h1 className="text-2xl font-bold mb-4">Outgoing Offers</h1>
+        <div className="w-[100%] h-[100%] p-4 text-center">
+            <h1 className="text-2xl font-bold mb-4 text-white">Outgoing Offers</h1>
             {
                 loading === false ?
             <div className="w-[100%] h-[15%] flex flex-col justify-center items-center">
