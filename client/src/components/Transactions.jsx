@@ -4,6 +4,13 @@ import Header from "./Header"
 import InpOup from "./InpOup"
 export default function Transactions(){
     const [prods, setProds] = useState([])
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const token = localStorage.getItem('token');
+            if(!token || (jwtDecode(token).exp*1000 < Date.now())) Navigate('/signup')
+        }, 1000)
+        return () => clearInterval(interval)
+    }, [])
     async function getOffers() {
         const response = await fetch("https://vendify2.vercel.app/transactions", {
             method: "POST",
