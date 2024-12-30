@@ -35,6 +35,7 @@ router.post("/", async (req, res) => {
         _id: productId,
       });
       if(!product) return res.status(400).json({error: "incorrect product Id"})
+      if(product.sold === true) return res.status(400).json({error: "product sold alreadt"})
       const newOffer = new offerModel({
         offeredBy: email,
         offeredTo: sellerEmail,
