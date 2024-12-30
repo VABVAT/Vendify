@@ -15,11 +15,6 @@ router.post("/", async (req, res) => {
     const email = req.body.email;
     if (!email) return res.status(400).json({ error: "Email is required" });
 
-    const user = await userModel.findOne({
-      userName: email,
-    });
-
-    if (!user) return res.status(400).json({ error: "not logged in" });
     const offers = await offerModel.find({
       offeredTo: email
     });
