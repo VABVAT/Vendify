@@ -74,7 +74,7 @@ function Login(props){
             <input
                 type="text"
                 ref={userRef}
-                placeholder="Enter your institute email"
+                placeholder="Enter your  email"
                 className="w-[70%] h-[50px] rounded-2xl border-[1px] border-black border-solid p-4"
             />
         </div>
