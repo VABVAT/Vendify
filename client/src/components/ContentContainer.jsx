@@ -25,7 +25,7 @@ export default function ContentContainer() {
         setLoader(true)
         async function getItem() {
             try {
-                const response = await fetch('https://vendify2.vercel.app/listing', {
+                const response = await fetch('https://vendify-backend-service.vercel.app/listing', {
                     method: "GET"
                 })
                 const itemsArray = await response.json();
@@ -48,7 +48,7 @@ export default function ContentContainer() {
         async function getItem() {
             try {
                 if(open === false){
-                const response = await fetch('https://vendify2.vercel.app/listing', {
+                const response = await fetch('https://vendify-backend-service.vercel.app/listing', {
                     method: "GET"
                 })
                 const itemsArray = await response.json();

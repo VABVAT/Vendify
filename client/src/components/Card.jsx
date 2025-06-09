@@ -15,7 +15,7 @@ export default function Card({ image, price, email, description, name, ids }) {
             return;
         }
 
-        const response = await fetch("https://vendify2.vercel.app/makeOffer", {
+        const response = await fetch("https://vendify-backend-service.vercel.app/makeOffer", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

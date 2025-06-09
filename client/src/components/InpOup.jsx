@@ -6,7 +6,7 @@ export default function InpOup({ sendMode, prod, index, tra }) {
     const [Er, setEr] = useState('')
     const priceRef = useRef();
     async function counter() {
-        const response = await fetch("https://vendify2.vercel.app/respondOffer", {
+        const response = await fetch("https://vendify-backend-service.vercel.app/respondOffer", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -26,7 +26,7 @@ export default function InpOup({ sendMode, prod, index, tra }) {
     }
 
     async function rejectOffer() {
-        const response = await fetch("https://vendify2.vercel.app/reject", {
+        const response = await fetch("https://vendify-backend-service.vercel.app/reject", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -47,7 +47,7 @@ export default function InpOup({ sendMode, prod, index, tra }) {
 
 
     async function acceptOffer() {
-        const response = await fetch("https://vendify2.vercel.app/accept", {
+        const response = await fetch("https://vendify-backend-service.vercel.app/accept", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

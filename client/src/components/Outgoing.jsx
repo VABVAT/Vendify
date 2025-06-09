@@ -19,7 +19,7 @@ export default function Outgoing(){
     useEffect(() => {
         setLoading(true)
         async function getOffers() {
-            const offers1 = await fetch("https://vendify2.vercel.app/getSendOffers", {
+            const offers1 = await fetch("https://vendify-backend-service.vercel.app/getSendOffers", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
@@ -35,7 +35,7 @@ export default function Outgoing(){
 
     useEffect(() => {
         async function getOffers() {
-            const offers1 = await fetch("https://vendify2.vercel.app/getSendOffers", {
+            const offers1 = await fetch("https://vendify-backend-service.vercel.app/getSendOffers", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({

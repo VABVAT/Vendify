@@ -20,7 +20,7 @@ export default function ListCard({
 
   async function markDone() {
     red.current = id;
-    const repso = await fetch("https://vendify2.vercel.app/userListings", {
+    const repso = await fetch("https://vendify-backend-service.vercel.app/userListings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

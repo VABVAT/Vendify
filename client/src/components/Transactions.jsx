@@ -14,7 +14,7 @@ export default function Transactions(){
         return () => clearInterval(interval)
     }, [])
     async function getOffers() {
-        const response = await fetch("https://vendify2.vercel.app/transactions", {
+        const response = await fetch("https://vendify-backend-service.vercel.app/transactions", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({

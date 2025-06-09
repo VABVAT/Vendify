@@ -5,7 +5,7 @@ export default function EditForm({editForm, email ,setEditForm, price, name, des
     const [Description, setDescription] = useState(description)
     const [Price, setPrice] = useState(price)
     async function changeValue() {
-        const response = await fetch("https://vendify2.vercel.app/userListings", {
+        const response = await fetch("https://vendify-backend-service.vercel.app/userListings", {
             method : "POST",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify({

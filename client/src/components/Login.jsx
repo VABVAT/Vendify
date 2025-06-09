@@ -8,7 +8,7 @@ function Login(props){
     const [error, hasError] = useState("")
     const signIn = async () => {
         hasError("")
-        const response = await fetch("https://vendify2.vercel.app/signIn", {
+        const response = await fetch("https://vendify-backend-service.vercel.app/signIn", {
             method: "POST",
             headers: {"Content-Type" : 'application/json'},
             body : JSON.stringify({
@@ -28,7 +28,7 @@ function Login(props){
     }
     const signUp = async () => {
         hasError("")
-        const response = await fetch("https://vendify2.vercel.app/signUp", {
+        const response = await fetch("https://vendify-backend-service.vercel.app/signUp", {
             method : "POST",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify({
@@ -41,7 +41,7 @@ function Login(props){
         else{
             // localStorage.setItem('hashedId', resp.id);
             //! now sending otp
-            const optS = await fetch('https://vendify2.vercel.app/sendOtp', {
+            const optS = await fetch('https://vendify-backend-service.vercel.app/sendOtp', {
                 method: "POST",
                 headers:{"Content-Type" : "application/json"},
                 body: JSON.stringify({
